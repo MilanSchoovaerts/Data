@@ -43,6 +43,19 @@ create table dbr15_g11.begeleider
 
 
 
+create table dbr15_g11.klant
+(
+	klantID			integer		not null,
+	naam_bedrijf	varchar(20)	not null,
+	tel				integer		not null,
+	email			varchar(20)	not null,
+	adres			varchar(30)	not null,
+	
+	primary key (klantID)
+);
+
+
+
 
 create table factuur 
 (
