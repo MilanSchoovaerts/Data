@@ -1,0 +1,38 @@
+create table programma 
+(
+	programmaID			INTEGER				NOT NULL,
+	naam				CHAR(15)			NOT NULL,
+	omschrijving		CHAR(500)			NOT NULL,
+	begindatum	 		INTEGER				NOT NULL,
+	einddatum			INTEGER				NULL,
+	kost				INTEGER				NOT NULL,
+	
+	CONSTRAINT programma_PK		PRIMARY KEY (programmaID)
+);
+
+
+
+
+create table raport
+(
+	raportID			INTEGER				NOT NULL,
+	datumOpmaak			INTEGER				NOT NULL,
+	inhoed				CHAR(200)			NOT NULL,
+	geschrevendoor			CHAR(15)			NOT NULL,
+	
+	CONSTRAINT raport_PK		PRIMARY KEY (raportID)
+);
+
+
+
+
+create table factuur 
+(
+    factuurID			INTEGER			NOT NULL,
+	factuurnummer		INTEGER			NOT NULL,
+	bedrag				INTEGER			NOT NULL,
+	datumAanmaak		INTEGER			NOT NULL,
+	betalingsTermijn	INTEGER			NOT NULL,
+	
+	constraint factuur_PK	PRIMARY KEY (factuurID) 
+)
