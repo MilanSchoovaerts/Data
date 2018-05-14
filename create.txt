@@ -25,6 +25,24 @@ create table raport
 
 
 
+create table dbr15_g11.begeleider
+(
+	begeleiderID	integer		not null,
+	naam			varchar(15)	not null,
+	voornaam		varchar(15)	not null,
+	adres			varchar(30)	not null,
+	rijbewijs		boolean		not null default '0',
+	diploma			text		not null,
+	EHBO			boolean		not null default '0',
+	email			varchar(20)	not null,
+	geboortedatum	varchar(15)	not null,
+	geslacht		varchar(6)	not null check(geslacht in ('Man', 'Vrouw')),
+	
+	primary key (begeleiderID)
+);
+
+
+
 
 create table factuur 
 (
