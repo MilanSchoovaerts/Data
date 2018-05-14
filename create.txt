@@ -1,4 +1,4 @@
-create table programma 
+create table dbr15_g11.programma 
 (
 	programmaID			INTEGER				NOT NULL,
 	naam				CHAR(15)			NOT NULL,
@@ -13,7 +13,7 @@ create table programma
 
 
 
-create table raport
+create table dbr15_g11.raport
 (
 	raportID			INTEGER				NOT NULL,
 	datumOpmaak			INTEGER				NOT NULL,
@@ -44,7 +44,7 @@ create table dbr15_g11.begeleider
 
 
 
-create table factuur 
+create table dbr15_g11.factuur 
 (
     factuurID			INTEGER			NOT NULL,
 	factuurnummer		INTEGER			NOT NULL,
