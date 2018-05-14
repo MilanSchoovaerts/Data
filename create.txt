@@ -67,3 +67,16 @@ create table dbr15_g11.factuur
 	
 	constraint factuur_PK	PRIMARY KEY (factuurID) 
 )
+
+
+CREATE TABLE dbr15_g11.activiteit  (
+		activiteitID integer not null,
+		omschrijving char(500) not null,
+		grootteGroep integer not null,
+		duur integer not null,
+		PRIMARY KEY (activiteitID)
+	);
+	
+
+
+
