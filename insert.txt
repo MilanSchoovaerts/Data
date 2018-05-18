@@ -1,0 +1,77 @@
+INSERT INTO "dbr15_g11"."programma"(naam,omschrijving,begindatum,einddatum,kost) VALUES('programma 1','teambuilding oefeningen','2018-05-13',null,200);
+INSERT INTO "dbr15_g11"."programma"(naam,omschrijving,begindatum,einddatum,kost) VALUES('programma Leuven','verschillende rustgevende activiteiten in de leuvense buite gebieden','2018-01-25','2018-01-30',300);
+INSERT INTO "dbr15_g11"."programma"(naam,omschrijving,begindatum,einddatum,kost) VALUES('programma gent','urban art activiteiten','2003-04-17','2004-12-02',150);
+INSERT INTO "dbr15_g11"."programma"(naam,omschrijving,begindatum,einddatum,kost) VALUES('voetbal kamp','alles voetbal','2009-01-27','2009-01-30',50);
+INSERT INTO "dbr15_g11"."programma"(naam,omschrijving,begindatum,einddatum,kost) VALUES('zeven kamp','alle activiteiten dat er gedaan worden in een zeven kamp (lopen , ...)','2018-03-20',null,800);
+
+INSERT INTO "dbr15_g11"."begeleider"(naam,voornaam,adres,rijbewijs,diploma,ehbo,email,geboortedatum,geslacht) VALUES('cleas','dirk','liersesteenweg 14 aarschot',true,'verzorging',true,'dirkcleas@hotmail.com','1985-03-21','Man');
+INSERT INTO "dbr15_g11"."begeleider"(naam,voornaam,adres,rijbewijs,diploma,ehbo,email,geboortedatum,geslacht) VALUES('boon','patrick','geldenaaksebaan 200 leuven',true,'psycholoog',false,'patrickboon@hotmail.com','1974-06-03','Man');
+INSERT INTO "dbr15_g11"."begeleider"(naam,voornaam,adres,rijbewijs,diploma,ehbo,email,geboortedatum,geslacht) VALUES('smets','hanne','kortrijksebaan 20 holsbeek',true,'verpleegster',true,'hannesmets@hotmail.com','1994-07-24','Vrouw');
+INSERT INTO "dbr15_g11"."begeleider"(naam,voornaam,adres,rijbewijs,diploma,ehbo,email,geboortedatum,geslacht) VALUES('vd velde','imke','leming 134 kessel-lo',false,'sociology',false,'imkevdvelde@hotmail.com','1999-02-13','Vrouw');
+
+
+INSERT INTO "dbr15_g11"."raportage"(datumOpmaak,inhoud,geschrevendoor) VALUES('2015-05-24','activiteit is goed verlopen','patrick');
+INSERT INTO "dbr15_g11"."raportage"(datumOpmaak,inhoud,geschrevendoor) VALUES('2016-04-18','activiteit is goed verlopen de groep is hechter geworden','dirk');
+INSERT INTO "dbr15_g11"."raportage"(datumOpmaak,inhoud,geschrevendoor) VALUES('2003-11-07','activiteit is matig verlopen er is geen vooruitgang gemaakt in het team verband van de deelnemers','patrick');
+INSERT INTO "dbr15_g11"."raportage"(datumOpmaak,inhoud,geschrevendoor) VALUES('2010-09-30','activiteit is goed verlopen veel vooruigang geboekt','imke');
+INSERT INTO "dbr15_g11"."raportage"(datumOpmaak,inhoud,geschrevendoor) VALUES('2018-06-20','activiteit is slecht verlopen ','dirk');
+
+INSERT INTO "dbr15_g11"."materiaal"(omschrijving) VALUES ('bal');
+INSERT INTO "dbr15_g11"."materiaal"(omschrijving) VALUES ('handdoek');
+INSERT INTO "dbr15_g11"."materiaal"(omschrijving) VALUES ('vestjes');
+INSERT INTO "dbr15_g11"."materiaal"(omschrijving) VALUES ('kano');
+INSERT INTO "dbr15_g11"."materiaal"(omschrijving) VALUES ('frisbee');
+INSERT INTO "dbr15_g11"."materiaal"(omschrijving) VALUES ('speer');
+INSERT INTO "dbr15_g11"."materiaal"(omschrijving) VALUES ('helm');
+
+INSERT INTO "dbr15_g11"."activiteit"(omschrijving,groottegroep,duur) VALUES('voetbal','12','90');
+INSERT INTO "dbr15_g11"."activiteit"(omschrijving,groottegroep,duur) VALUES('speerwerpen','20','50');
+INSERT INTO "dbr15_g11"."activiteit"(omschrijving,groottegroep,duur) VALUES('frisbeeën','8','30');
+INSERT INTO "dbr15_g11"."activiteit"(omschrijving,groottegroep,duur) VALUES('kano tocht','4','180');
+INSERT INTO "dbr15_g11"."activiteit"(omschrijving,groottegroep,duur) VALUES('fietsen','10','120');
+INSERT INTO "dbr15_g11"."activiteit"(omschrijving,groottegroep,duur) VALUES('zwemmen','30','150');
+
+INSERT INTO "dbr15_g11"."materiaalLijst"(hoeveelheid) VALUES ('3');
+INSERT INTO "dbr15_g11"."materiaalLijst"(hoeveelheid) VALUES ('30');
+INSERT INTO "dbr15_g11"."materiaalLijst"(hoeveelheid) VALUES ('12');
+INSERT INTO "dbr15_g11"."materiaalLijst"(hoeveelheid) VALUES ('4');
+INSERT INTO "dbr15_g11"."materiaalLijst"(hoeveelheid) VALUES ('2');
+INSERT INTO "dbr15_g11"."materiaalLijst"(hoeveelheid) VALUES ('20');
+INSERT INTO "dbr15_g11"."materiaalLijst"(hoeveelheid) VALUES ('10');
+
+INSERT INTO "dbr15_g11"."factuur"(factuurnummer,bedrag,datumaanmaak,betalingsTermijn) VALUES('15236458','500','2018-02-15',50);
+INSERT INTO "dbr15_g11"."factuur"(factuurnummer,bedrag,datumaanmaak,betalingsTermijn) VALUES('24586231','300','2009-05-08',30);
+INSERT INTO "dbr15_g11"."factuur"(factuurnummer,bedrag,datumaanmaak,betalingsTermijn) VALUES('15236458','500','2011-11-23',50);
+INSERT INTO "dbr15_g11"."factuur"(factuurnummer,bedrag,datumaanmaak,betalingsTermijn) VALUES('15236458','500','2005-08-06',50);
+INSERT INTO "dbr15_g11"."factuur"(factuurnummer,bedrag,datumaanmaak,betalingsTermijn) VALUES('15236458','500','2013-08-27',30);
+
+INSERT INTO "dbr15_g11"."groep"(naam) VALUES ('de winnaars');
+INSERT INTO "dbr15_g11"."groep"(naam) VALUES ('loser squad');
+INSERT INTO "dbr15_g11"."groep"(naam) VALUES ('belgium devils');
+INSERT INTO "dbr15_g11"."groep"(naam) VALUES ('team 5');
+INSERT INTO "dbr15_g11"."groep"(naam) VALUES ('kopen krakers');
+
+INSERT INTO "dbr15_g11"."werkvorm"(naam,omschrijving,groottegroep,auteur) VALUES('voetballen','tegen bal schotten tot in doel is beland','12','patrick');
+INSERT INTO "dbr15_g11"."werkvorm"(naam,omschrijving,groottegroep,auteur) VALUES('kanoën','op een rivier gaan varen voor rust te krijgen','12','imke');
+INSERT INTO "dbr15_g11"."werkvorm"(naam,omschrijving,groottegroep,auteur) VALUES('zwemmen','gaan zwemmen in een zwembad','50','hanne');
+INSERT INTO "dbr15_g11"."werkvorm"(naam,omschrijving,groottegroep,auteur) VALUES('speer werpen','zover mogelijk met een speer gooien','20','dirk');
+INSERT INTO "dbr15_g11"."werkvorm"(naam,omschrijving,groottegroep,auteur) VALUES('fietsen','rond rijden op een fiets','30','patrick');
+
+INSERT INTO "dbr15_g11"."klant"(naam_bedrijf,tel,email,adres) VALUES('vzw kleinebreugel','0412345678','vzwkleinebreugel@hotmail.be','breugelsesteenweg 23 kleinebreugel');
+INSERT INTO "dbr15_g11"."klant"(naam_bedrijf,tel,email,adres) VALUES('ucll proximus','0487654321','ucllproximus@hotmail.be','geldenhaaksesteenweg 210 leuven');
+INSERT INTO "dbr15_g11"."klant"(naam_bedrijf,tel,email,adres) VALUES('speelplein','0456784321','speelplein@hotmail.be','leming 108 klenebreugel');
+INSERT INTO "dbr15_g11"."klant"(naam_bedrijf,tel,email,adres) VALUES('rusthuis','0412348765','rusthuis@hotmail.be','kortrijksebaan 20 holsbeek');
+
+INSERT INTO "dbr15_g11"."groepsleider"(naam,achternaam,tel,email) VALUES('de kerpel','simon','0452135878','simondekerpel@hotmail.com');
+INSERT INTO "dbr15_g11"."groepsleider"(naam,achternaam,tel,email) VALUES('krap','kris','0478541235','kriskrap@hotmail.com');
+INSERT INTO "dbr15_g11"."groepsleider"(naam,achternaam,tel,email) VALUES('post','pieter','045552314','pieterpost@hotmail.com');
+INSERT INTO "dbr15_g11"."groepsleider"(naam,achternaam,tel,email) VALUES('mertens','karel','0441235689','karelmertens@hotmail.com');
+INSERT INTO "dbr15_g11"."groepsleider"(naam,achternaam,tel,email) VALUES('van tielen','evelien','0469696969','evelienvantielen@hotmail.com');
+
+INSERT INTO "dbr15_g11"."deelnemer"(naam,voornaam,adres,geboortedatum,tel,email,medischeinfo,geslacht) VALUES('janssens','sarah','suckelpot 01 holsbeek','2001-02-16','0478512576','sarahjanssens@hotmail.com','bloedgroep o pos , alergisch voor wespen','Vrouw');
+INSERT INTO "dbr15_g11"."deelnemer"(naam,voornaam,adres,geboortedatum,tel,email,medischeinfo,geslacht) VALUES('verbruggen','mark','suckelpot 02 holsbeek','1999-05-12','0402368150','markverbruggen@hotmail.com','bloedgroep o neg','Man');
+INSERT INTO "dbr15_g11"."deelnemer"(naam,voornaam,adres,geboortedatum,tel,email,medischeinfo,geslacht) VALUES('verstevene','jolien','suckelpot 03 holsbeek','2000-12-31','0470563410','jolienverstevene@hotmail.com','bloedgroep b pos , alergisch voor isobethadine','Vrouw');
+INSERT INTO "dbr15_g11"."deelnemer"(naam,voornaam,adres,geboortedatum,tel,email,medischeinfo,geslacht) VALUES('wouters','magda','suckelpot 04 holsbeek','1998-06-15','0489024576','magdawouters@hotmail.com','bloedgroep b pos , pollen alergie','Vrouw');
+INSERT INTO "dbr15_g11"."deelnemer"(naam,voornaam,adres,geboortedatum,tel,email,medischeinfo,geslacht) VALUES('van damme','leo','suckelpot 05 holsbeek','2002-07-01','0400235688','leovandamme@hotmail.com','bloedgroep a pos','Man');
+INSERT INTO "dbr15_g11"."deelnemer"(naam,voornaam,adres,geboortedatum,tel,email,medischeinfo,geslacht) VALUES('jacobs','jef','suckelpot 06 holsbeek','2000-08-15','0403566478','jefjacobs@hotmail.com','bloedgroep ab pos','Man');
+INSERT INTO "dbr15_g11"."deelnemer"(naam,voornaam,adres,geboortedatum,tel,email,medischeinfo,geslacht) VALUES('peeters','sarah','suckelpot 07 holsbeek','2001-03-15','0403566407','sarahpeeters@hotmail.com','bloedgroep a neg','Vrouw');

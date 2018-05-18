@@ -47,10 +47,10 @@ CREATE TABLE "dbr15_g11"."raportage"
 CREATE TABLE "dbr15_g11"."klant"
 (
 	klantID			SERIAL		PRIMARY KEY,
-	naam_bedrijf	varchar(20)	not null,
+	naam_bedrijf	varchar(40)	not null,
 	tel				integer		not null,
-	email			varchar(20)	not null,
-	adres			varchar(30)	not null
+	email			varchar(50)	not null,
+	adres			varchar(50)	not null
 );
 
 CREATE TABLE "dbr15_g11"."factuur" 
