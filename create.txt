@@ -1,3 +1,30 @@
+CREATE TABLE "dbr15_g11"."klant"
+(
+	klantID			SERIAL		PRIMARY KEY,
+	naam_bedrijf	varchar(40)	not null,
+	tel				integer		not null,
+	email			varchar(50)	not null,
+	adres			varchar(50)	not null
+);
+
+CREATE TABLE "dbr15_g11"."factuur" 
+(
+    factuurID			SERIAL			PRIMARY KEY,
+	factuurnummer		INTEGER			NOT NULL,
+	bedrag				INTEGER			NOT NULL,
+	datumAanmaak		DATE			NOT NULL,
+	betalingsTermijn	INTEGER			NOT NULL,
+	fk_klantID int REFERENCES "dbr15_g11"."klant"(klantID)
+);
+
+CREATE TABLE "dbr15_g11"."groep" 
+(
+    groepID			SERIAL			PRIMARY KEY,
+	naam			VARCHAR(15)		NOT NULL,
+	fk_klantID int REFERENCES "dbr15_g11"."klant"(klantID)
+);
+
+
 CREATE TABLE "dbr15_g11"."programma"
 (
 	programmaID			SERIAL				PRIMARY KEY,
@@ -5,7 +32,9 @@ CREATE TABLE "dbr15_g11"."programma"
 	omschrijving		VARCHAR(500)		NOT NULL,
 	begindatum	 		DATE				NOT NULL,
 	einddatum			DATE				NULL,
-	kost				INTEGER				NOT NULL
+	kost				INTEGER				NOT NULL,
+	fk_groepID int REFERENCES "dbr15_g11"."groep"(groepID),
+	fk_factuurID int REFERENCES "dbr15_g11"."factuur"(factuurID)
 );
 
 CREATE TABLE "dbr15_g11"."begeleider"
@@ -25,14 +54,14 @@ CREATE TABLE "dbr15_g11"."begeleider"
 CREATE TABLE "dbr15_g11"."begelijderOpProg"
 (
 	begeleiderOpProgID			SERIAL			PRIMARY KEY,
-	begeleiderID INT REFERENCES "dbr15_g11"."begeleider",
-	programmaID INT REFERENCES "dbr15_g11"."programma"
+	fk_begeleiderID int REFERENCES "dbr15_g11"."begeleider"(begeleiderID),
+	fk_programmaID int REFERENCES "dbr15_g11"."programma"(programmaID)
 );
 CREATE TABLE "dbr15_g11"."hoofdbegelijderOpProg"
 (
 	hoofdbegeleiderOpProgID			SERIAL			PRIMARY KEY,
-	begeleiderID INT REFERENCES "dbr15_g11"."begeleider",
-	programmaID INT REFERENCES "dbr15_g11"."programma"
+	fk_begeleiderID int REFERENCES "dbr15_g11"."begeleider"(begeleiderID),
+	fk_programmaID int REFERENCES "dbr15_g11"."programma"(programmaID)
 );
 
 CREATE TABLE "dbr15_g11"."raportage"
@@ -41,37 +70,9 @@ CREATE TABLE "dbr15_g11"."raportage"
 	datumopmaak			DATE				NOT NULL,
 	inhoud				CHAR(200)			NOT NULL,
 	geschrevendoor			CHAR(15)			NOT NULL,
-	programmaID	INT	REFERENCES	"dbr15_g11"."programma"
+	fk_programmaID	int	REFERENCES	"dbr15_g11"."programma"(programmaID)
 );
 
-CREATE TABLE "dbr15_g11"."klant"
-(
-	klantID			SERIAL		PRIMARY KEY,
-	naam_bedrijf	varchar(40)	not null,
-	tel				integer		not null,
-	email			varchar(50)	not null,
-	adres			varchar(50)	not null
-);
-
-CREATE TABLE "dbr15_g11"."factuur" 
-(
-    factuurID			SERIAL			PRIMARY KEY,
-	factuurnummer		INTEGER			NOT NULL,
-	bedrag				INTEGER			NOT NULL,
-	datumAanmaak		DATE			NOT NULL,
-	betalingsTermijn	INTEGER			NOT NULL,
-	klantID INT REFERENCES "dbr15_g11"."klant"
-);
-
-CREATE TABLE "dbr15_g11"."groep" 
-(
-    groepID			SERIAL			PRIMARY KEY,
-	naam			VARCHAR(15)		NOT NULL,
-	klantID INT REFERENCES "dbr15_g11"."klant"
-);
-
-ALTER TABLE dbr15_g11.programma ADD groepID INT REFERENCES "dbr15_g11"."groep";
-ALTER TABLE dbr15_g11.programma ADD factuurID INT REFERENCES "dbr15_g11"."factuur";
 
 CREATE TABLE "dbr15_g11"."activiteit"
 (
@@ -83,8 +84,8 @@ CREATE TABLE "dbr15_g11"."activiteit"
 CREATE TABLE "dbr15_g11"."activiteitSessie"
 (
 	activiteitSessieID		SERIAL			PRIMARY KEY,
-	activiteitID INT REFERENCES "dbr15_g11"."activiteit",
-	programmaID INT REFERENCES "dbr15_g11"."programma"
+	fk_activiteitID int REFERENCES "dbr15_g11"."activiteit"(activiteitID),
+	fk_programmaID int REFERENCES "dbr15_g11"."programma"(programmaID)
 );
 CREATE TABLE "dbr15_g11"."materiaal"
 (
@@ -103,15 +104,15 @@ CREATE TABLE "dbr15_g11"."materiaalLijst"
 (
 	materiaalLijstID		SERIAL				PRIMARY KEY,
 	hoeveelheid				INTEGER				NOT NULL,
-	materiaalID INT REFERENCES "dbr15_g11"."materiaal",
-	activiteitID INT REFERENCES "dbr15_g11"."activiteit",
-	werkvormID INT REFERENCES "dbr15_g11"."werkvorm"
+	fk_materiaalID int REFERENCES "dbr15_g11"."materiaal"(materiaalID),
+	fk_activiteitID int REFERENCES "dbr15_g11"."activiteit"(activiteitID),
+	fk_werkvormID int REFERENCES "dbr15_g11"."werkvorm"(werkvormID)
 );
 CREATE TABLE "dbr15_g11"."werkvormSessie"
 (
 	werkvormSessieID		SERIAL				PRIMARY KEY,
-	werkvormID INT REFERENCES "dbr15_g11"."werkvorm",
-	groepID INT REFERENCES "dbr15_g11"."groep"
+	fk_werkvormID int REFERENCES "dbr15_g11"."werkvorm"(werkvormID),
+	fk_groepID int REFERENCES "dbr15_g11"."groep"(groepID)
 );
 CREATE TABLE "dbr15_g11"."groepsleider"
 (
@@ -120,7 +121,7 @@ CREATE TABLE "dbr15_g11"."groepsleider"
 	achternaam			VARCHAR(15)			NOT NULL,
 	tel					INTEGER				NOT NULL,
 	email				VARCHAR(30)			NOT NULL,
-	groepID INT REFERENCES "dbr15_g11"."groep"
+	fk_groepID int REFERENCES "dbr15_g11"."groep"(groepID)
 );
 CREATE TABLE "dbr15_g11"."deelnemer"
 (
@@ -137,8 +138,8 @@ CREATE TABLE "dbr15_g11"."deelnemer"
 CREATE TABLE "dbr15_g11"."deelname"
 (
 	deelnameID			SERIAL				PRIMARY KEY,
-	groepID INT REFERENCES "dbr15_g11"."groep",
-	deelnemerID INT REFERENCES "dbr15_g11"."deelnemer"
+	fk_groepID int REFERENCES "dbr15_g11"."groep"(groepID),
+	fk_deelnemerID int REFERENCES "dbr15_g11"."deelnemer"(deelnemerID)
 )
 	
 

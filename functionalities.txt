@@ -1,0 +1,10 @@
+--enkele gegevens van een factuur bekijken en te zien van welke groep en welke programma het is
+
+SELECT g.naam as naam_groep, p.naam as programma_naam, p.kost as kost_programma, f.factuurnummer as factuurnummer,
+       f.datumaanmaak as opmaak_datum, f.bedrag as te_betalen_bedrag, f.betalingstermijn
+FROM "dbr15_g11"."programma" p inner join "dbr15_g11"."groep" g
+ON p.fk_groepID = g.groepID
+INNER JOIN "dbr15_g11"."factuur" f
+ON p.fk_factuurID = f.factuurID
+WHERE date_part('year',f.datumaanmaak) = 2011 and f.betalingsTermijn = 50
+ORDER BY f.factuurnummer
