@@ -1,11 +1,27 @@
-CREATE TABLE "dbr15_g11"."programma"(
+CREATE TABLE "dbr15_g11"."programma"
+(
 	programmaID			SERIAL				PRIMARY KEY,
 	naam				VARCHAR(15)			NOT NULL,
 	omschrijving		VARCHAR(500)		NOT NULL,
 	begindatum	 		INTEGER				NOT NULL,
 	einddatum			INTEGER				NULL,
-	kost				INTEGER				NOT NULL,
+	kost				INTEGER				NOT NULL
 );
+
+CREATE TABLE "dbr15_g11"."begeleider"
+(
+	begeleiderID	SERIAL		PRIMARY KEY,
+	naam			varchar(15)	not null,
+	voornaam		varchar(15)	not null,
+	adres			varchar(30)	not null,
+	rijbewijs		boolean		not null default '0',
+	diploma			text		not null,
+	EHBO			boolean		not null default '0',
+	email			varchar(20)	not null,
+	geboortedatum	varchar(15)	not null,
+	geslacht		varchar(6)	not null check(geslacht in ('Man', 'Vrouw'))
+);
+
 CREATE TABLE "dbr15_g11"."begelijderOpProg"
 (
 	begeleiderOpProgID			SERIAL			PRIMARY KEY,
@@ -18,19 +34,7 @@ CREATE TABLE "dbr15_g11"."hoofdbegelijderOpProg"
 	begeleiderID INT REFERENCES "dbr15_g11"."begeleider",
 	programmaID INT REFERENCES "dbr15_g11"."programma"
 );
-CREATE TABLE "dbr15_g11"."begeleider"
-(
-	begeleiderID	SERIAL		PRIMARY KEY,
-	naam			varchar(15)	not null,
-	voornaam		varchar(15)	not null,
-	adres			varchar(30)	not null,
-	rijbewijs		boolean		not null default '0',
-	diploma			text		not null,
-	EHBO			boolean		not null default '0',
-	email			varchar(20)	not null,
-	geboortedatum	varchar(15)	not null,
-	geslacht		varchar(6)	not null check(geslacht in ('Man', 'Vrouw')),
-);
+
 CREATE TABLE "dbr15_g11"."raportage"
 (
 	raportageID			SERIAL				PRIMARY KEY,
@@ -39,6 +43,16 @@ CREATE TABLE "dbr15_g11"."raportage"
 	geschrevendoor			CHAR(15)			NOT NULL,
 	programmaID	INT	REFERENCES	"dbr15_g11"."programma"
 );
+
+CREATE TABLE "dbr15_g11"."klant"
+(
+	klantID			SERIAL		PRIMARY KEY,
+	naam_bedrijf	varchar(20)	not null,
+	tel				integer		not null,
+	email			varchar(20)	not null,
+	adres			varchar(30)	not null
+);
+
 CREATE TABLE "dbr15_g11"."factuur" 
 (
     factuurID			SERIAL			PRIMARY KEY,
@@ -48,14 +62,7 @@ CREATE TABLE "dbr15_g11"."factuur"
 	betalingsTermijn	INTEGER			NOT NULL,
 	klantID INT REFERENCES "dbr15_g11"."klant"
 );
-CREATE TABLE "dbr15_g11"."klant"
-(
-	klantID			SERIAL		PRIMARY KEY,
-	naam_bedrijf	varchar(20)	not null,
-	tel				integer		not null,
-	email			varchar(20)	not null,
-	adres			varchar(30)	not null
-);
+
 CREATE TABLE "dbr15_g11"."groep" 
 (
     groepID			SERIAL			PRIMARY KEY,
@@ -68,7 +75,7 @@ ALTER TABLE dbr15_g11.programma ADD factuurID INT REFERENCES "dbr15_g11"."factuu
 
 CREATE TABLE "dbr15_g11"."activiteit"
 (
-	activiteitID 	SERIEL 			PRIMARY KEY,
+	activiteitID 	SERIAL 			PRIMARY KEY,
 	omschrijving 	VARCHAR(200) 		NOT NULL,
 	grootteGroep 	INTEGER 		NOT NULL,
 	duur 		INTEGER 		NOT NULL
@@ -134,6 +141,4 @@ CREATE TABLE "dbr15_g11"."deelname"
 	deelnemerID INT REFERENCES "dbr15_g11"."deelnemer"
 )
 	
-
-
 

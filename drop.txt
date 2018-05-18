@@ -1,0 +1,33 @@
+DROP TABLE dbr15_g11."materiaalLijst";
+
+DROP TABLE dbr15_g11."materiaal";
+
+DROP TABLE dbr15_g11."werkvormSessie";
+
+DROP TABLE dbr15_g11."werkvorm";
+
+DROP TABLE dbr15_g11."activiteitSessie";
+
+DROP TABLE dbr15_g11."activiteit";
+
+DROP TABLE dbr15_g11."deelname";
+
+DROP TABLE dbr15_g11."deelnemer";
+
+DROP TABLE dbr15_g11."groepsleider";
+
+DROP TABLE dbr15_g11."raportage";
+
+DROP TABLE dbr15_g11."begelijderOpProg";
+
+DROP TABLE dbr15_g11."hoofdbegelijderOpProg";
+
+DROP TABLE dbr15_g11."begeleider";
+
+DROP TABLE dbr15_g11."programma";
+
+DROP TABLE dbr15_g11."factuur";
+
+DROP TABLE dbr15_g11."groep";
+
+DROP TABLE dbr15_g11."klant";
