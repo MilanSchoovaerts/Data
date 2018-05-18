@@ -1,10 +1,10 @@
 CREATE TABLE "dbr15_g11"."programma"
 (
 	programmaID			SERIAL				PRIMARY KEY,
-	naam				VARCHAR(30)			NOT NULL,
+	naam				VARCHAR(15)			NOT NULL,
 	omschrijving		VARCHAR(500)		NOT NULL,
-	begindatum	 		DATE				NOT NULL,
-	einddatum			DATE				NULL,
+	begindatum	 		INTEGER				NOT NULL,
+	einddatum			INTEGER				NULL,
 	kost				INTEGER				NOT NULL
 );
 
@@ -17,8 +17,8 @@ CREATE TABLE "dbr15_g11"."begeleider"
 	rijbewijs		boolean		not null default '0',
 	diploma			text		not null,
 	EHBO			boolean		not null default '0',
-	email			varchar(50)	not null,
-	geboortedatum		DATE		not null,
+	email			varchar(20)	not null,
+	geboortedatum	varchar(15)	not null,
 	geslacht		varchar(6)	not null check(geslacht in ('Man', 'Vrouw'))
 );
 
@@ -38,8 +38,8 @@ CREATE TABLE "dbr15_g11"."hoofdbegelijderOpProg"
 CREATE TABLE "dbr15_g11"."raportage"
 (
 	raportageID			SERIAL				PRIMARY KEY,
-	datumopmaak			DATE				NOT NULL,
-	inhoud				CHAR(200)			NOT NULL,
+	datumOpmaak			INTEGER				NOT NULL,
+	inhoed				CHAR(200)			NOT NULL,
 	geschrevendoor			CHAR(15)			NOT NULL,
 	programmaID	INT	REFERENCES	"dbr15_g11"."programma"
 );
@@ -58,7 +58,7 @@ CREATE TABLE "dbr15_g11"."factuur"
     factuurID			SERIAL			PRIMARY KEY,
 	factuurnummer		INTEGER			NOT NULL,
 	bedrag				INTEGER			NOT NULL,
-	datumAanmaak		DATE			NOT NULL,
+	datumAanmaak		INTEGER			NOT NULL,
 	betalingsTermijn	INTEGER			NOT NULL,
 	klantID INT REFERENCES "dbr15_g11"."klant"
 );
@@ -128,11 +128,11 @@ CREATE TABLE "dbr15_g11"."deelnemer"
 	naam				VARCHAR(15)			NOT NULL,
 	voornaam			VARCHAR(15)			NOT NULL,
 	adres				VARCHAR(50)			NOT NULL,
-	geboortedatum		DATE				NOT NULL,
+	geboortedatum		INTEGER				NOT NULL,
 	tel					INTEGER				NOT NULL,
 	email				VARCHAR(30)			NOT NULL,
 	medischeInfo		VARCHAR(200)		NOT NULL,
-	geslacht		varchar(6)	not null check(geslacht in ('Man', 'Vrouw'))
+	geslacht			VARCHAR(5)			NOT NULL
 );
 CREATE TABLE "dbr15_g11"."deelname"
 (
